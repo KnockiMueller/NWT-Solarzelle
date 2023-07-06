@@ -99,7 +99,7 @@ void loop() {
   Serial.println(lightlevel2);
   */
 
-  if (tolerance(lightlevel1, lightlevel2, adif + abs(adif * 5))) { // Checkt ob in Toleranzbereich, wenn nicht, Ermittlung ob Vor oder Zurueck
+  if (tolerance(lightlevel1, lightlevel2, adif + 20)) { // Checkt ob in Toleranzbereich, wenn nicht, Ermittlung ob Vor oder Zurueck
     if (lightlevel1 < lightlevel2) {
       faktor = 1;
     }
@@ -127,7 +127,7 @@ void loop() {
     ulight = 0;
   }
 
-  delay(50);
+  delay(5);
 }
 
 
@@ -145,6 +145,3 @@ bool tolerance(int x, int y, int t_bereich) {
     return true;
   }
 }
-
-
-
